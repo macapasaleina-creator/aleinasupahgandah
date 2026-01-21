@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday My LahWy!</title>
+
+<!-- Google Font: Fleur De Leah -->
+<link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    text-align: center;
+    margin: 0;
+    padding-top: 60px;
+    overflow: hidden;
+}
+
+/* Headers with Fleur De Leah + white glow */
+#page1 h1, #page2 h1 {
+    font-family: 'Fleur De Leah', cursive;
+    font-size: 4rem;
+    color: #ffffff;
+    text-shadow: 0 0 8px #fff, 0 0 12px #fff, 0 0 16px #fff;
+}
+#page1 p {
+    font-family: 'Fleur De Leah', cursive;
+    font-size: 2rem;
+    color: #ffffff;
+    text-shadow: 0 0 8px #fff, 0 0 12px #fff, 0 0 16px #fff;
+}
+
+/* PAGES */
+.page {
+    display: none;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#page1 { background-image: url("https://i.imgur.com/ZbtDVp3.jpeg"); }
+#page2 { background-image: url("https://i.imgur.com/AGNSzpn.jpeg"); }
+
+.page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.55);
+    z-index: 0;
+}
+
+.page > * { position: relative; z-index: 1; }
+.active { display: block; }
+
+/* BUTTONS */
+button {
+    padding: 12px 26px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #001f54; /* navy blue */
+    color: #ffffff;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+button:hover { background-color: #003366; }
+
+/* TEXT BG (page2) */
+#page2 .text-bg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 120px;
+    color: rgba(0,0,0,0.04);
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* LETTER BOX */
+.letter-box {
+    max-width: 800px;
+    margin: 20px auto;
+    background: rgba(0,31,84,0.8); /* navy blue with transparency */
+    padding: 30px;
+    border-radius: 16px;
+    text-align: left;
+    line-height: 1.6;
+    font-size: 16px;
+    color: #fff;
+    font-family: Georgia, "Times New Roman", serif;
+    max-height: 60vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-shadow: 0 0 8px rgba(255,255,255,0.4);
+    transition: transform 0.1s;
+}
+.letter-box:hover { 
+    transform: rotate(-2deg) scale(1.02); 
+    animation: jiggle 0.3s ease-in-out infinite alternate;
+}
+@keyframes jiggle {
+    0% { transform: rotate(-2deg) scale(1.02); }
+    100% { transform: rotate(2deg) scale(1.02); }
+}
+.letter-box p { margin-bottom: 18px; }
+
+/* HEARTS, SPARKLES, FLOWERS, STARS */
+.hearts .heart { position:absolute; bottom:-30px; width:12px; height:12px; background:#fff; opacity:0.8; transform:rotate(45deg); animation:floatUp 6s linear infinite; border-radius:3px;}
+.hearts .heart::before, .hearts .heart::after {content:""; position:absolute; width:12px; height:12px; background:#fff; border-radius:50%;}
+.hearts .heart::before { top:-6px; left:0; }
+.hearts .heart::after { left:6px; top:0; }
+@keyframes floatUp {0% {transform:translateX(0) translateY(0) rotate(45deg); opacity:0.8;} 50% {transform:translateX(20px) translateY(-150px) rotate(45deg); opacity:0.6;}100% {transform:translateX(-20px) translateY(-300px) rotate(45deg); opacity:0;}}
+.sparkles .spark {position:absolute; width:4px; height:4px; background:#fff; opacity:0.8; border-radius:50%; animation:sparkle 2s infinite;}
+@keyframes sparkle {0%,100% {transform:scale(1); opacity:0.8;}50% {transform:scale(1.5); opacity:0.2;}}
+.flowers .flower {position:absolute; width:8px; height:8px; background:#fff; border-radius:50%; opacity:0.8; animation:bloom 4s infinite ease-in-out;}
+@keyframes bloom {0% {transform:scale(0); opacity:0;}50% {transform:scale(1.2); opacity:0.8;}100% {transform:scale(0); opacity:0;}}
+.shooting-star {position:absolute; width:2px; height:80px; background:linear-gradient(45deg,#fff,rgba(255,255,255,0)); opacity:0.8; transform:rotate(45deg); animation:shoot 3s linear infinite;}
+@keyframes shoot {0% {transform:translate(-100px,0) rotate(45deg); opacity:1;}100% {transform:translate(110vw,100vh) rotate(45deg); opacity:0;}}
+
+/* placements */
+.hearts .heart:nth-child(1){left:10%; animation-delay:0s;}
+.hearts .heart:nth-child(2){left:30%; animation-delay:1s;}
+.hearts .heart:nth-child(3){left:50%; animation-delay:2s;}
+.hearts .heart:nth-child(4){left:70%; animation-delay:3s;}
+.hearts .heart:nth-child(5){left:90%; animation-delay:4s;}
+.sparkles .spark:nth-child(1){top:20%; left:15%; animation-delay:0s;}
+.sparkles .spark:nth-child(2){top:40%; left:60%; animation-delay:0.5s;}
+.sparkles .spark:nth-child(3){top:70%; left:30%; animation-delay:1s;}
+.sparkles .spark:nth-child(4){top:50%; left:80%; animation-delay:1.5s;}
+.sparkles .spark:nth-child(5){top:25%; left:50%; animation-delay:2s;}
+.flowers .flower:nth-child(1){top:20%; left:10%; animation-delay:0s;}
+.flowers .flower:nth-child(2){top:40%; left:40%; animation-delay:1s;}
+.flowers .flower:nth-child(3){top:60%; left:70%; animation-delay:2s;}
+.flowers .flower:nth-child(4){top:30%; left:80%; animation-delay:3s;}
+.flowers .flower:nth-child(5){top:50%; left:55%; animation-delay:4s;}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page active">
+    <h1>Happy Birthday, My LahWy!</h1>
+    <p>To my sweetest, awesomest, most precious Willi, click Open</p>
+
+    <!-- GIFs for page 1 -->
+    <img src="https://i.imgur.com/tbEBK82.gif" style="width:150px; margin-bottom:20px;"><br>
+    <button id="openButton">Open</button><br><br>
+    <img src="https://i.imgur.com/wQKVfMo.gif" style="width:150px; margin-top:20px;">
+
+    <div class="hearts"><div class="heart"></div><div class="heart"></div><div class="heart"></div><div class="heart"></div><div class="heart"></div></div>
+    <div class="sparkles"><div class="spark"></div><div class="spark"></div><div class="spark"></div><div class="spark"></div><div class="spark"></div></div>
+    <div class="flowers"><div class="flower"></div><div class="flower"></div><div class="flower"></div><div class="flower"></div><div class="flower"></div></div>
+    <div class="shooting-star"></div><div class="shooting-star" style="animation-delay:1s;"></div><div class="shooting-star" style="animation-delay:2s;"></div>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page">
+    <h1>Dear Wyllie,</h1>
+    <div class="text-bg">LOVE</div>
+
+    <div class="letter-box">
+        <p>
+i just want to start this letter by greeting you a very happy birthday. 15 ka na tatlong taon na lang, pwede ka nang bumoto huhu. time really moves so fast, no?
+
+first of all, thank you for being such a good friend. thank you for being the one person i can always confide in—whether it’s my self-loathing, my problems at home, or even things between me and you know who. i really, really appreciate that ikaw lang yung nakakaintindi sa’kin ng ganito. that alone makes you incredibly special to me.
+
+kung feeling mo walang may favorite sa’yo, ako—favorite kita. sa dami-dami ng taong nakilala ko, ikaw lang yung naging favorite ko because at the same time, you’re the only person i feel safe enough to show my real self to. i don’t need to pretend. i don’t need to act a certain way. i trust you very much 
+
+sometimes, i find myself thinking about how lucky i am to have you and aimee in my life. parang ginawa kayo ni Lord na reminder na may kabutihan pa rin talaga sa mundo. ikaw, especially—you’re gentle, you’re soft, you listen, you forgive, you understand. you know when you cross my boundaries, and you know how to apologize. you’re patient, thoughtful, sincere, and you make me feel safe in ways i never knew i needed.
+
+naiiyak na lang ako kapag iniisip ko ang future because no matter what happens, kayo talaga ang gusto kong kasama. you’re someone i’ll only meet once in a lifetime, and that’s not an exaggeration you’re my one and only, wyllie.
+
+i have so many wishes for you this year, and one of them is something i always tell you: sana matutunan mo munang mahalin ang sarili mo bago ang iba. ang tagal ko na ‘tong sinasabi, and minsan parang hindi mo pa rin talaga kaya. you always put other people first, even if it means ikaw ang nauubos. kahit masakit sa’yo, okay lang—as long as everyone else is fine.
+
+sometimes i wish you’d be selfish, kahit konti lang. but then i realize—that wouldn’t be you. and that’s exactly what makes you so rare. in a world that asks for too much, you receive so little, yet you give away your whole self without hesitation.
+
+another wish of mine: please don’t always bottle up your emotions. grade 7 pa lang sinasabi ko na ‘to—please, wy, magsabi ka. kahit sa’kin lang. i will always listen. kahit magulo, kahit walang sense, kahit puro luha lang yan, i’ll find a way to understand you. oo, minsan wala naman talaga akong magagawa—but carrying everything alone will only hurt you more. kahit minsan lang, kahit maliit na bagay lang na masama sa loob mo, please tell me.
+
+i hope you know how deeply appreciated you are. sobra-sobra yung pagmamahal ko sa’yo. i would give up all my friends just to keep you and aimee—and i would do it again and again without regret.
+
+how can the world be so cruel to the softest person i know?
+
+happy birthday wy, lahwy, alex, xandra, leilei, kuya wheel, wrovin, apple, kiwi, my honeybunchcuppycakesweetiepiesugarplumchocochipcookies, my baby
+
+Love, Alein
+        </p>
+    </div>
+
+    <!-- New GIF above Go Back button -->
+    <img src="https://i.imgur.com/LOQqOd2.gif" style="width:150px; margin:10px 0;"><br>
+
+    <!-- Go Back button -->
+    <button onclick="goToPage(1)">Go Back</button><br><br>
+
+    <!-- Replace GIF under Go Back button -->
+    <img src="https://i.imgur.com/IUAWKDC.gif" style="width:150px; margin:10px 0;"><br>
+
+    <!-- Audio controls -->
+    <audio id="bgMusic" autoplay loop controls style="margin-top: 20px; background-color: #001f54; border-radius: 8px; padding: 5px;">
+      <source src="https://www.dropbox.com/scl/fi/z0p8i2a11wz0x8nl3ftdt/Reality-Club-Alexandra.mp3?rlkey=f6f0c3qc6onnirmgfhe61wk77&st=3p6key4k&dl=1" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+</div>
+
+<script>
+function goToPage(pageNumber){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById('page'+pageNumber).classList.add('active');
+}
+
+/* Cursor trailing stars */
+document.addEventListener('mousemove', function(e){
+    const star = document.createElement('div');
+    star.style.position='absolute';
+    star.style.width='6px';
+    star.style.height='6px';
+    star.style.backgroundColor='#fff';
+    star.style.borderRadius='50%';
+    star.style.top=e.clientY+'px';
+    star.style.left=e.clientX+'px';
+    star.style.opacity=0.8;
+    star.style.pointerEvents='none';
+    star.style.transition='all 0.7s linear';
+    document.body.appendChild(star);
+    setTimeout(()=>star.remove(),700);
+});
+
+/* Confetti burst on Open */
+document.getElementById('openButton').addEventListener('click', function(){
+    for(let i=0;i<50;i++){
+        const conf = document.createElement('div');
+        conf.style.position='absolute';
+        conf.style.width='6px';
+        conf.style.height='6px';
+        conf.style.backgroundColor=`hsl(${Math.random()*360},100%,80%)`;
+        conf.style.top=window.innerHeight/2+'px';
+        conf.style.left=window.innerWidth/2+'px';
+        conf.style.opacity='1';
+        conf.style.borderRadius='50%';
+        conf.style.transition='all 1.5s ease-out';
+        document.body.appendChild(conf);
+        setTimeout(()=>{
+            conf.style.top=(Math.random()*window.innerHeight)+'px';
+            conf.style.left=(Math.random()*window.innerWidth)+'px';
+            conf.style.opacity='0';
+        },10);
+        setTimeout(()=>conf.remove(),1500);
+    }
+    goToPage(2);
+});
+</script>
+</body>
+</html>
